@@ -10,6 +10,8 @@ body .container {
     display: none;
 }
 
+
+
 /*Form Styling for login and register*/
 .spacer
 {
@@ -41,7 +43,38 @@ body {
     width: 100vw;
     overflow-x: hidden;
 }
+/*Navbar*/
 
+.navbar {
+    background-color: rgba(0, 0, 0, 0.3);
+    padding-bottom: 10px;
+    backdrop-filter: blur(10px);
+}
+
+.navbar .navbar-brand {
+    font-family:'Rancho',cursive;
+    font-size: 32px;
+}
+
+/*Login Form*/
+
+.col-sm-3
+{
+    padding-top: 12px;
+}
+.col-form-label
+{
+    padding-top: 20px;
+}
+#Login_Button
+{
+padding-top: 30px;
+}
+
+.login_container
+{
+    padding-top: 10px;
+}
 .currency-row-outer {
     display: flex;
     align-items: center;
