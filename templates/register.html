@@ -7,16 +7,21 @@
     <title>Register</title>
     {% include ['header.html'] %}
 </head>
+{% include ['navbar.html'] %}
 <body>
     <h1>Register</h1>
-    <a href="{{url_for('login')}}">Already have an account? Log in</a><br>
+  
     <div class = spacer>
     <form class = loginbox method = 'POST'action="">
-        {{ form.hidden_tag() }}
-        {{ form.username() }}
-        {{ form.password() }}
-        {{ form.submit() }}
-    </div>
+        <label for="">Username</label>
+        {{ form.hidden_tag() }} 
+        {{ form.username() }} 
+        <label for="">Password</label>
+        {{ form.password() }} <br>
+        {{ form.submit() }} <br>
+        <a href="{{url_for('login')}}">Already have an account? Log in</a><br>
+    
     </form>
+</div>
 </body>
 </html>

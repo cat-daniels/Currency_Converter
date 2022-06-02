@@ -9,11 +9,12 @@ from flask_bcrypt import Bcrypt
 app = Flask(__name__)
 
 #Config Database
-db = SQLAlchemy(app)
+
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///user.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY']='secretkey'
 
+db = SQLAlchemy(app)
 #So we can hash passwords
 bcrypt=Bcrypt(app)
 

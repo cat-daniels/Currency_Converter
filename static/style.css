@@ -9,3 +9,22 @@ body {
 body .container {
     display: none;
 }
+
+/*Form Styling for login and register*/
+.spacer
+{
+    display: flex;
+    justify-content: space-around;
+}
+
+.loginbox
+{
+    display: inline-grid;
+}
+
+.a
+{
+/*removing underline from all anchors*/
+    color: #FFFFFF;
+    text-decoration: none;
+}
