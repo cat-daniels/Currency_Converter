@@ -53,3 +53,11 @@ const select = document.querySelectorAll('.currency');
           select[1].innerHTML += `<option value="${entries[i][0]}">${entries[i][1]}</option>`;
         }
      }
+     function switchCurrency(){
+        var currency1 = $('#currency-selector-1 option:selected').attr("value");
+        var currency2 = $('#currency-selector-2 option:selected').attr("value");
+      
+        $('#currency-selector-1').val(currency2).change();
+        $('#currency-selector-2').val(currency1).change();
+      
+      }
