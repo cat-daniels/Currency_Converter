@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <!--Website Name-->
     <a class="navbar-brand" href="{{url_for('index')}}">Currency Converter</a>
    
@@ -15,7 +15,6 @@
         <!--Nav Items-->
         <li class="nav-item">
          <li> <a class="nav-link" href="{{url_for('index')}}">Converter</a> </li>
-         <li> <a class="nav-link" href="{{url_for('history')}}">History</a> </li>  
          <li> <a class="nav-link" href="{{url_for('news')}}">Recent News</a> </li>
           {% if current_user.is_authenticated %}
          <li><a class="nav-link " href="{{ url_for('profile') }}">Profile</a></li>
