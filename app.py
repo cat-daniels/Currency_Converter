@@ -1,10 +1,10 @@
-from flask import Flask, render_template, url_for, redirect
+from flask import Flask, render_template, request, url_for, redirect
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin, login_user, LoginManager, login_required, logout_user, current_user
 from wtforms import StringField,PasswordField,SubmitField
 from wtforms.validators import InputRequired,Length,ValidationError
 from flask_wtf import FlaskForm
-from models import Users
+from models import Users, Conversions
 from flask_bcrypt import Bcrypt
 app = Flask(__name__)
 
@@ -36,7 +36,7 @@ def index():
 @app.route('/history')
 def history():
     return render_template('history.html')
-    
+
 @app.route('/news')
 def news():
     return render_template('news.html')
@@ -119,3 +119,19 @@ if __name__ == '__main__' :
     app.run(debug=True)
 
 
+@app.route("/", methods=["POST"])
+@login_required
+def save_conversion():
+    if request.method == "POST":
+        fromValue = request.form.get("input-amount-1")
+        fromCurrency = request.form.get("currency-input-1")
+        toValue = request.form.get("input-amount-2")
+        toCurrency = request.form.get("currency-input-2")
+        if fromValue and toValue:
+            new_conversion = Conversions(user_id=current_user.id, username=current_user.username, fromCurrency=fromCurrency, toCurrency=toCurrency, fromValue=fromValue, toValue=toValue, rate=float(toValue) / float(fromValue))
+            db.session.add(new_conversion)
+            db.session.commit()
+            msg="Conversion Saved"
+        else:
+            msg = "Please Enter a Value"
+    return render_template('index.html', name='Currency Converter', msg=msg, user=current_user)
