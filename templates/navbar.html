@@ -17,9 +17,14 @@
           <a class="nav-link" href="{{url_for('index')}}">Converter</a> </li>
           <a class="nav-link" href="{{url_for('history')}}">History</a> </li>
           <a class="nav-link" href="{{url_for('news')}}">Recent News</a> </li>
-          
-          <a class="nav-link" href="#">Login</a> </li>
-          <a class="nav-link" href="#">Registration</a> </li>
+          {% if current_user.is_authenticated %}
+          <a class="nav-link " href="{{ url_for('profile') }}">Profile</a>
+          <a class="nav-link " href="{{ url_for('logout') }}">Logout</a>
+        {% endif %}
+        {% if not current_user.is_authenticated %}
+          <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+          <a class="nav-link" href="{{ url_for('register') }}">Register</a>
+        {% endif %}
   
         </li>
       </ul>
