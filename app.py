@@ -4,7 +4,7 @@ from flask_login import UserMixin, login_user, LoginManager, login_required, log
 from wtforms import StringField,PasswordField,SubmitField
 from wtforms.validators import InputRequired,Length,ValidationError
 from flask_wtf import FlaskForm
-from datetime import datetime
+from models import Users
 from flask_bcrypt import Bcrypt
 app = Flask(__name__)
 
@@ -15,6 +15,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY']='secretkey'
 
 db = SQLAlchemy(app)
+
 #So we can hash passwords
 bcrypt=Bcrypt(app)
 
@@ -26,22 +27,23 @@ login_manager.login_view = 'login'
 @login_manager.user_loader
 def load_user(user_id):
     return Users.query.get(int(user_id))
+#------------------------------ROUTING------------------------------------------------------------------------
+#on initial run go to the index page
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 
-#Model for Users
-class Users(UserMixin, db.Model):
-    __tablename__ = 'Users'
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(50), nullable=False, unique=True)
-    #unique = true means unique username only
-    password = db.Column(db.String(256), nullable=False)
-    is_Admin = db.Column(db.Boolean, nullable=False, default=False)
-    date_created = db.Column(db.DateTime, default=datetime.utcnow)
 
+
+
+# --------------------------------REGISTER & LOGIN ACCOUNT FORMS -----------------------------------------------
+# registration form for user:
 class RegisterForm(FlaskForm):
     username = StringField(validators=[
                            InputRequired(), Length(min=4, max=20)], render_kw={"placeholder": "Username"})
-
+# User must meet the requirments to register an account otherwise it will keep prompting them to enter the right details
+#Username length min of 4 char max of 20 password = min of 8 char max of 20
     password = PasswordField(validators=[
                              InputRequired(), Length(min=8, max=20)], render_kw={"placeholder": "Password"})
 
@@ -64,25 +66,27 @@ class LoginForm(FlaskForm):
 
     submit = SubmitField('Login')
 
-@app.route('/')
-def index():
-    return render_template('index.html')
+#-------------------------------------------------------------------------------------------------------------
 
-@app.route('/profile', methods = ['GET','POST'])
-@login_required
-def profile():
-    return render_template('profile.html')
+#-----------------------------------DATA_BASE CHECKING TO SEE IF INFO IS CORRECT------------------------------
 
 @app.route('/login', methods = ['GET','POST'])
 def login():
     form = LoginForm()
+    # check the database when the submit button is pushed
     if form.validate_on_submit():
         user = Users.query.filter_by(username=form.username.data).first()
+        #If the username exists check the hashed password if they both match go to the user profile
         if user:
             if bcrypt.check_password_hash(user.password, form.password.data):
                 login_user(user)
                 return redirect(url_for('profile'))
     return render_template('login.html',form=form)
+
+@app.route('/profile', methods = ['GET','POST']) # User to be redirected to their profile once they have logged in
+@login_required
+def profile():
+    return render_template('profile.html')
 
 @app.route('/register',methods = ['GET','POST'])
 def register():
@@ -97,6 +101,8 @@ def register():
 
     return render_template('register.html',form=form)
 
+#-------------------------------------------------------------------------------------------------------------
+# User must be logged in. to be logged out this redirects the user to the login page if they have logged out
 @app.route('/logout', methods = ['GET','POST'])
 @login_required
 def logout():
