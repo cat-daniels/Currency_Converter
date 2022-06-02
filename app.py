@@ -33,7 +33,13 @@ def load_user(user_id):
 def index():
     return render_template('index.html')
 
-
+@app.route('/history')
+def history():
+    return render_template('history.html')
+    
+@app.route('/news')
+def news():
+    return render_template('news.html')
 
 
 
