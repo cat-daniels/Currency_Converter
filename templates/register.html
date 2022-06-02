@@ -5,17 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
+    {% include ['header.html'] %}
 </head>
 <body>
     <h1>Register</h1>
     <a href="{{url_for('login')}}">Already have an account? Log in</a><br>
-    
-    <form method = 'POST'action="">
+    <div class = spacer>
+    <form class = loginbox method = 'POST'action="">
         {{ form.hidden_tag() }}
         {{ form.username() }}
         {{ form.password() }}
-       <button>submit</button> = {{ form.submit() }}
-
+        {{ form.submit() }}
+    </div>
     </form>
 </body>
 </html>
