@@ -113,3 +113,7 @@ body .container {
     font-size: larger;
     color: #0F2027;
 }
+.content_currency
+{
+    display: grid;
+}
