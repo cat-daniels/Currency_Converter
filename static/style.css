@@ -117,3 +117,36 @@ body .container {
 {
     display: grid;
 }
+.button_graph
+{
+    border: 1px solid grey;
+    border-radius: 5px;
+    color: white;
+    background-color: rgb(91, 154, 91);
+    padding: 3px;
+}
+
+/*-----------News section---------*/
+#articles .article {
+    border: none;
+    margin: 10px auto;
+    padding: 30px;
+    color: white;
+    background-color: rgba(56, 12, 36, 0.305);
+}
+
+.article-img {
+    max-width: 100%;
+}
+
+.article .title {
+    font-weight: 600;
+}
+
+.article .button {
+    float: right;
+}
+
+#news-currency-selector
+{border: none;
+    margin-top: 10px;}

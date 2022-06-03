@@ -38,9 +38,6 @@
                             <select name="currency-selector" id="graph-base-currency-selector"></select>
                         </div>
                         <div class="col">
-                            <a class="switchCurrency" onclick="switchCurrency()"><img class="switchIcon" src="{{ url_for('static', filename='img/repeat-solid.svg') }}"></a>
-                        </div>
-                        <div class="col">
                             <span>To</span><br>
                             <select name="currency-selector" id="graph-convert-currency-selector"></select>
                         </div>
@@ -51,23 +48,23 @@
                 
                 <div class="col">
                     <div class="dateSort">
-                        <button class="button" value="7" onclick="setDate(7)">
-                            <span>7d</span>
+                        <button class="button_graph" value="7" onclick="setDate(7)">
+                            <span>7Days</span>
                         </button>
-                        <button class="button" value="30" onclick="setDate(30)">
-                            <span>1m</span>
+                        <button class="button_graph" value="30" onclick="setDate(30)">
+                            <span>1Mth</span>
                         </button>
-                        <button class="button" value="180" onclick="setDate(180)">
-                            <span>6m</span>
+                        <button class="button_graph" value="180" onclick="setDate(180)">
+                            <span>6Mth</span>
                         </button>
-                        <button class="button" value="365" onclick="setDate(365)">
-                            <span>1y</span>
+                        <button class="button_graph" value="365" onclick="setDate(365)">
+                            <span>1YRS</span>
                         </button>
-                        <button class="button" value="730" onclick="setDate(730)">
-                            <span>2y</span>
+                        <button class="button_graph" value="730" onclick="setDate(730)">
+                            <span>2YRS</span>
                         </button>
-                        <button class="button" value="1826" onclick="setDate(1826)">
-                            <span>5y</span>
+                        <button class="button_graph" value="1826" onclick="setDate(1826)">
+                            <span>5YRS</span>
                         </button>
                     </div>
                 </div>
