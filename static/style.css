@@ -103,9 +103,11 @@ body .container {
 }
 .currency_form
 {
-    display: block;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding: 25pt;
+    margin-top: -40px;
+    border: 3px solid rgba(0, 128, 128, 0.126);
+    border-radius: 20px;
+    background-color: rgba(0, 128, 128, 0.126);
     
 }
 #conversion-rate-container
@@ -148,5 +150,43 @@ body .container {
 }
 
 #news-currency-selector
-{border: none;
-    margin-top: 10px;}
+{   border: none;
+    margin-top: 10px;
+}
+
+/*---------------------------------*/
+
+.graph_container
+{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.CurrencyGraphsearchBoxes
+{
+    padding: 25pt;
+    margin-top: -40px;
+    border: 3px solid rgba(0, 128, 128, 0.126);
+    border-radius: 20px;
+    background-color: rgba(0, 128, 128, 0.126);
+}
+
+.GraphSize_Make_Smol
+{
+  border: 1px solid rgba(0, 0, 255, 0);
+  height: 300px;
+  width: 600px;
+}
+
+.container_dashboard
+{
+    justify-content: space-around;
+    display: flex;
+    align-items: stretch;
+    flex-wrap: nowrap;
+    align-content: center;
+}
+.dateSort
+{
+    padding-top: 20px;
+}

@@ -168,13 +168,13 @@ function displayGraph(graphLabels, graphData, currency){
             scales: {
                 y: {
                     ticks: {
-                        color: "rgba(255, 255, 255, 0.7)",
+                        color: "rgba(102, 53, 79, 0.8)",
                         beginAtZero: false
                     }
                 },
                 x: {
                     ticks: {
-                        color: "rgba(255, 255, 255, 0.7)",
+                        color: "rgba(102, 53, 79, 0.8))",
                     }
                 }
             }

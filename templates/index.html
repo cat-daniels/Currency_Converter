@@ -19,7 +19,6 @@
       <input type="text" placeholder="Enter Value" name="input-amount-1" class="currency-input" id="input-amount-1">
       <select name="currency-input-1" id="currency-selector-1" onchange="updatevalue()"></select>
       <br>
-      <a class="switchCurrency" onclick="switchCurrency()"><img class="switchIconConverter" src="{{ url_for('static', filename='img/repeat-solid.svg') }}"></a>
       <br>
       <input type="text" name="input-amount-2" class="currency-input" id="input-amount-2">
       <select name="currency-input-2" id="currency-selector-2" onchange="updatevalue()"></select>
@@ -27,11 +26,12 @@
       <input class="button" type="submit" value="Save Conversion">
       <a href="" class="button">View Saved Conversions</a>
     </form>
-  </div>
+  
           <!--Start of graph-->
           <div class="graph_container">
             <div class="row">
-                <div class="col">
+                <div class="CurrencyGraphsearchBoxes">
+                    <h3>Check the history</h3>
                     <div class="selectCurrency row">
                         <div class="col">
                             <span>From</span><br>
@@ -44,7 +44,7 @@
 
                     </div>
                     
-                </div>
+                
                 
                 <div class="col">
                     <div class="dateSort">
@@ -69,15 +69,19 @@
                     </div>
                 </div>
             </div>
-            
+        </div>
+    </div>
+</div>
+            <div class="GraphSize_Make_Smol">
             <canvas id="myChart" width="300" height="200"></canvas>
         </div>
+    
 
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
         <script src="{{ url_for('static', filename='js/loader.js') }}"></script>
-        <script src="{{ url_for('static', filename='js/graph.js') }}"></script>
+
 </div>
 
 <script src="{{ url_for('static', filename='js/main.js') }}"></script>
