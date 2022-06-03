@@ -101,4 +101,15 @@ body .container {
     padding: 8px;
     border-radius: 20px;
 }
-.currency
+.currency_form
+{
+    display: block;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    
+}
+#conversion-rate-container
+{
+    font-size: larger;
+    color: #0F2027;
+}
