@@ -104,7 +104,6 @@ body .container {
 .currency_form
 {
     padding: 25pt;
-    margin-top: -40px;
     border: 3px solid rgba(0, 128, 128, 0.126);
     border-radius: 20px;
     background-color: rgba(0, 128, 128, 0.126);
@@ -165,7 +164,7 @@ body .container {
 .CurrencyGraphsearchBoxes
 {
     padding: 25pt;
-    margin-top: -40px;
+    margin-top: -15px;
     border: 3px solid rgba(0, 128, 128, 0.126);
     border-radius: 20px;
     background-color: rgba(0, 128, 128, 0.126);
